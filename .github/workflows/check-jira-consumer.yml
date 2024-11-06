@@ -11,36 +11,3 @@ jobs:
       jira_base_url: ${{ secrets.JIRA_BASE_URL }}
       jira_email: ${{ secrets.JIRA_EMAIL }}
       jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
-# jobs:
-#   check-title:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Check Secret Availabilityy
-#         run: |
-#           if [ -z "${{ secrets.JIRA_BASE_URL }}" ]; then
-#             echo "JIRA_BASE_URL is not available"
-#             exit 1
-#           else
-#             echo "JIRA_BASE_URL is available"
-#           fi
-
-#           if [ -z "${{ secrets.JIRA_EMAIL }}" ]; then
-#             echo "JIRA_EMAIL is not available"
-#             exit 1
-#           else
-#             echo "JIRA_EMAIL is available"
-#           fi
-
-#           if [ -z "${{ secrets.JIRA_API_TOKEN }}" ]; then
-#             echo "JIRA_API_TOKEN is not available"
-#             exit 1
-#           else
-#             echo "JIRA_API_TOKEN is available"
-#           fi
-
-#       - name: Check PR title matches JIRA
-#         uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
-#         with:
-#           jira_base_url: ${{ secrets.JIRA_BASE_URL }}
-#           jira_email: ${{ secrets.JIRA_EMAIL }}
-#           jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
