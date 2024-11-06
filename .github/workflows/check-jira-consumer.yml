@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check PR title matches JIRA
-        uses: pauta-eletronica/workflows/.github/workflows/reusable-workflow.yml@main
+        uses: pauta-eletronica/workflows/.github/workflows/reusable-workflow.yml@master
         with:
           jira_base_url: ${{ secrets.JIRA_BASE_URL }}
           jira_email: ${{ secrets.JIRA_EMAIL }}
