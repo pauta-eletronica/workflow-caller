@@ -3,6 +3,12 @@ name: Check JIRA Ticket Consumer
 on: push
 
 jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: echo "Hello World!"
+
   check-title:
     runs-on: ubuntu-latest
     steps:
