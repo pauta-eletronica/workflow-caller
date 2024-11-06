@@ -11,7 +11,7 @@ jobs:
   check-title:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Secret Availability
+      - name: Check Secret Availabilityy
         run: |
           if [ -z "${{ secrets.JIRA_BASE_URL }}" ]; then
             echo "JIRA_BASE_URL is not available"
