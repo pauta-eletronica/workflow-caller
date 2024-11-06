@@ -1,6 +1,8 @@
 name: Check JIRA Ticket Consumer
 
-on: push
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
 
 jobs:
   check-title:
