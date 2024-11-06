@@ -8,22 +8,22 @@ jobs:
     steps:
       - name: my-step
         run: echo "Hello World!"
-#   check-title:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Debug Secrets
-#         run: |
-#           echo "JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}"
-#           echo "JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}"
-#           echo "JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}"
-#         env:
-#           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
-#           JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
-#           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+  check-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Secrets
+        run: |
+          echo "JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}"
+          echo "JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}"
+          echo "JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}"
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
 
-#       - name: Check PR title matches JIRA
-#         uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
-#         with:
-#           jira_base_url: ${{ secrets.JIRA_BASE_URL }}
-#           jira_email: ${{ secrets.JIRA_EMAIL }}
-#           jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
+    #   - name: Check PR title matches JIRA
+    #     uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
+    #     with:
+    #       jira_base_url: ${{ secrets.JIRA_BASE_URL }}
+    #       jira_email: ${{ secrets.JIRA_EMAIL }}
+    #       jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
