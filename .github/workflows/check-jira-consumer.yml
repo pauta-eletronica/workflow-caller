@@ -6,7 +6,13 @@ on:
 
 jobs:
   check-title:
-    runs-on: ubuntu-latest
+    uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
+    with:
+      jira_base_url: ${{ secrets.JIRA_BASE_URL }}
+      jira_email: ${{ secrets.JIRA_EMAIL }}
+      jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
+
+    # Optional: add additional setup or debug steps before calling the reusable workflow
     steps:
       - name: Check Secret Availability
         run: |
@@ -30,10 +36,3 @@ jobs:
           else
             echo "JIRA_API_TOKEN is available"
           fi
-
-      - name: Check PR title matches JIRA
-        uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
-        with:
-          jira_base_url: ${{ secrets.JIRA_BASE_URL }}
-          jira_email: ${{ secrets.JIRA_EMAIL }}
-          jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
