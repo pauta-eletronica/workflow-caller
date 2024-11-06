@@ -11,15 +11,37 @@ jobs:
   check-title:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug Secrets
+      - name: Check Secret Availability
         run: |
-          echo "JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}"
-          echo "JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}"
-          echo "JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}"
-        env:
-          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
-          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
-          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          if [ -z "${{ secrets.JIRA_BASE_URL }}" ]; then
+            echo "JIRA_BASE_URL is not available"
+            exit 1
+          else
+            echo "JIRA_BASE_URL is available"
+          fi
+
+          if [ -z "${{ secrets.JIRA_EMAIL }}" ]; then
+            echo "JIRA_EMAIL is not available"
+            exit 1
+          else
+            echo "JIRA_EMAIL is available"
+          fi
+
+          if [ -z "${{ secrets.JIRA_API_TOKEN }}" ]; then
+            echo "JIRA_API_TOKEN is not available"
+            exit 1
+          else
+            echo "JIRA_API_TOKEN is available"
+          fi
+    #   - name: Debug Secrets
+    #     run: |
+    #       echo "JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}"
+    #       echo "JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}"
+    #       echo "JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}"
+    #     env:
+    #       JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+    #       JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+    #       JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
 
     #   - name: Check PR title matches JIRA
     #     uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
