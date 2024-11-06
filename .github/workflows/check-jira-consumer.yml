@@ -8,6 +8,16 @@ jobs:
   check-title:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Secrets
+        run: |
+          echo "JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}"
+          echo "JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}"
+          echo "JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}"
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+
       - name: Check PR title matches JIRA
         uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
         with:
