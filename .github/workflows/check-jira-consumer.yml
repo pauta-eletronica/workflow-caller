@@ -1,0 +1,13 @@
+name: Check JIRA Ticket Consumer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  check-title:
+    uses: pauta-eletronica/workflows/.github/workflows/check-jira.yml@master
+    secrets:
+      jira_base_url: ${{ secrets.JIRA_BASE_URL }}
+      jira_email: ${{ secrets.JIRA_EMAIL }}
+      jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
